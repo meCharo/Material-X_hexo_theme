@@ -1,0 +1,36 @@
+<footer id="footer" class="clearfix">
+    <!--个人联系方式-->
+    <% if (config.social) { %>
+        <div class="social-wrapper">
+            <% (config.social || []).forEach(function(value){ %>
+                <% if (value.url && value.icon) { %>
+                    <a href="<%= url_for(value.url) %>" class="social <%- value.icon %> flat-btn" target="_blank"
+                       rel="external"></a>
+                <% } %>
+            <% }) %>
+        </div>
+    <% } %>
+    <br>
+    <div><%- markdown(__('footer.license')) %></div>
+    <!--_blank:浏览器总在一个新打开、未命名的窗口中载入目标文档。-->
+    <div>
+        <%- __('footer.use') %>
+        <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
+        <!--逗号-->
+        <%- __('symbol.comma') %>
+        <%- __('footer.driver') %>
+        <a href="https://hexo.io" target="_blank" class="codename">Hexo</a>
+        <%- __('footer.generator') %>
+        <% if (theme.services && theme.services.busuanzi == true) { %>
+            <%- __('symbol.comma') %>
+            <%- __('footer.total_views') %>
+            <span id="busuanzi_value_site_pv">
+                <!--<i>标签显示斜体文本效果-->
+                <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
+            </span>
+            <%- __('footer.times') %>
+        <% } %>
+        <!--不知道做什么的-->
+        <%- __('symbol.period') %>
+    </div>
+</footer>
